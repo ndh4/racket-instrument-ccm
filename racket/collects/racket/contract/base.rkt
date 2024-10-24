@@ -130,6 +130,8 @@
  value-blame
  contract-continuation-mark-key
  list-contract?
+ log-ccm-entry?
+ log-ccm-entry!
   
  ;; from private/case-arrow.rkt
  case->

@@ -60,6 +60,8 @@
          
          contract-continuation-mark-key
          with-contract-continuation-mark
+         log-ccm-entry?
+         log-ccm-entry!
          collapsible-contract-continuation-mark-key
          with-collapsible-contract-continuation-mark
          
@@ -982,6 +984,9 @@
 (define contract-continuation-mark-key
   (make-continuation-mark-key 'contract))
 
+(define log-ccm-entry? (make-parameter #f))
+(define log-ccm-entry! (make-parameter (lambda (payload) (void))))
+
 ;; Instrumentation strategy:
 ;; - add instrumentation at entry points to the contract system:
 ;;   - `contract` (`apply-contract`, really)
@@ -1001,6 +1006,7 @@
     ;; ;; the contract test suite. It should find the problematic combinator.
     ;; (unless (or (pair? payload) (not (blame-missing-party? payload)))
     ;;   (error "internal error: missing blame party" payload))
+    (when (log-ccm-entry?) ((log-ccm-entry!) payload))
     (with-continuation-mark contract-continuation-mark-key payload
                             (let () code ...))))
 
