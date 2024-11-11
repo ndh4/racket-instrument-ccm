@@ -1,5 +1,5 @@
 #lang racket
 
-(provide u-decrement)
+(provide u-sub1)
 
-(define (u-decrement x) (- x 1))
+(define (u-sub1 x) (- x 1))

@@ -9,6 +9,6 @@
       (until-zero f (f x))))
 
 (define (main)
-  (define t-res (time (until-zero t-decrement 10)))
-  (define u-res (time (until-zero u-decrement 10)))
+  (define t-res (time (until-zero t-sub1 5)))
+  (define u-res (time (until-zero u-sub1 5)))
   (void))
