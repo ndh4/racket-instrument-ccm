@@ -1,6 +1,6 @@
 #lang typed/racket
 
-(provide t-sub1)
+(provide t-decrement)
 
-(: t-sub1 (-> Integer Integer))
-(define (t-sub1 x) (- x 1))
+(: t-decrement (-> Integer Integer))
+(define (t-decrement x) (- x 1))
